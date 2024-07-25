@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.account {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.account h2 {
+    margin-bottom: 20px;
+}
+
+.account input[type="email"],
+.account input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.account .btnn {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.account .btnn:hover {
+    background: #218838;
+}
+
+.account .link {
+    margin: 20px 0;
+}
+
+.account .link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.account .link a:hover {
+    text-decoration: underline;
+}
+
+.account .liw {
+    margin: 20px 0 10px;
+}
+
+.account .icons a {
+    margin: 0 10px;
+    color: #555;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.account .icons a:hover {
+    color: #000;
+}
+
+.social {
+    margin-top: 20px;
+}
+
+.social a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.social a:hover {
+    text-decoration: underline;
+}

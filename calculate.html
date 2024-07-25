@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="calculate.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CO2 Footprint Calculus</h1>
+        <form id="carbonFootprintForm">
+            <div class="form-group">
+                <label for="transportation">Transportation (km per week):</label>
+                <input type="number" id="transportation" name="transportation" required>
+            </div>
+            <div class="form-group">
+                <label for="energyUsage">Energy Usage (kWh per week):</label>
+                <input type="number" id="energyUsage" name="energyUsage" required>
+            </div>
+            <div class="form-group">
+                <label for="foodConsumption">Food Consumption (meals per week):</label>
+                <input type="number" id="foodConsumption" name="foodConsumption" required>
+            </div>
+            <div class="form-group">
+                <label for="wasteProduction">Waste Production (kg per week):</label>
+                <input type="number" id="wasteProduction" name="wasteProduction" required>
+            </div>
+            <div class="form-group">
+                <label for="purchasingHabits">Purchasing Habits (items per week):</label>
+                <input type="number" id="purchasingHabits" name="purchasingHabits" required>
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="calculate.js"></script>
+</body>
+</html>
