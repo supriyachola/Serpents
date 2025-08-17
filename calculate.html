@@ -1,39 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbon Footprint Calculator</title>
-    <link rel="stylesheet" href="calculate.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carbon Footprint Calculator</title>
+  <link rel="stylesheet" href="calculate.css"/>
 </head>
 <body>
-    <div class="container">
-        <h1>CO2 Footprint Calculus</h1>
-        <form id="carbonFootprintForm">
-            <div class="form-group">
-                <label for="transportation">Transportation (km per week):</label>
-                <input type="number" id="transportation" name="transportation" required>
-            </div>
-            <div class="form-group">
-                <label for="energyUsage">Energy Usage (kWh per week):</label>
-                <input type="number" id="energyUsage" name="energyUsage" required>
-            </div>
-            <div class="form-group">
-                <label for="foodConsumption">Food Consumption (meals per week):</label>
-                <input type="number" id="foodConsumption" name="foodConsumption" required>
-            </div>
-            <div class="form-group">
-                <label for="wasteProduction">Waste Production (kg per week):</label>
-                <input type="number" id="wasteProduction" name="wasteProduction" required>
-            </div>
-            <div class="form-group">
-                <label for="purchasingHabits">Purchasing Habits (items per week):</label>
-                <input type="number" id="purchasingHabits" name="purchasingHabits" required>
-            </div>
-            <button type="submit">Calculate</button>
-        </form>
-        <div id="result"></div>
+  <div class="container">
+    <h1>CO₂ Footprint Calculator</h1>
+
+    <details class="howto" open>
+      <summary>Step-by-step guide</summary>
+      <ol>
+        <li>Choose a timeframe (Weekly / Monthly / Yearly).</li>
+        <li>Enter your values for each category.</li>
+        <li>Press <strong>Calculate</strong> to see totals, breakdown, and chart.</li>
+        <li>Save to <strong>History</strong> or download a <strong>PDF report</strong>.</li>
+        <li>Get <strong>Smart Advice (AI)</strong> for personalized suggestions (optional).</li>
+      </ol>
+    </details>
+
+    <div class="timeframe-toggle">
+      <label><input type="radio" name="timeframe" value="week" checked> Weekly</label>
+      <label><input type="radio" name="timeframe" value="month"> Monthly</label>
+      <label><input type="radio" name="timeframe" value="year"> Yearly</label>
     </div>
-    <script src="calculate.js"></script>
+
+    <form id="carbonFootprintForm">
+      <div class="form-group">
+        <label for="transportation">Transportation (km / selected timeframe)</label>
+        <input type="number" id="transportation" name="transportation" placeholder="e.g., 120" min="0" step="0.1" required/>
+        <small class="hint">Factor: 0.21 kg CO₂/km</small>
+      </div>
+
+      <div class="form-group">
+        <label for="energyUsage">Energy Usage (kWh / selected timeframe)</label>
+        <input type="number" id="energyUsage" name="energyUsage" placeholder="e.g., 75" min="0" step="0.1" required/>
+        <small class="hint">Factor: 0.257 kg CO₂/kWh</small>
+      </div>
+
+      <div class="form-group">
+        <label for="foodConsumption">Food Consumption (meals / selected timeframe)</label>
+        <input type="number" id="foodConsumption" name="foodConsumption" placeholder="e.g., 21" min="0" step="1" required/>
+        <small class="hint">Factor: 1.2 kg CO₂/meal</small>
+      </div>
+
+      <div class="form-group">
+        <label for="wasteProduction">Waste Production (kg / selected timeframe)</label>
+        <input type="number" id="wasteProduction" name="wasteProduction" placeholder="e.g., 8" min="0" step="0.1" required/>
+        <small class="hint">Factor: 0.9 kg CO₂/kg</small>
+      </div>
+
+      <div class="form-group">
+        <label for="purchasingHabits">Purchasing Habits (items / selected timeframe)</label>
+        <input type="number" id="purchasingHabits" name="purchasingHabits" placeholder="e.g., 2.5" min="0" step="0.1" required/>
+        <small class="hint">Factor: 2.5 kg CO₂/item</small>
+      </div>
+
+      <div class="buttons">
+        <button type="submit">Calculate</button>
+        <button type="button" id="saveBtn">Save Result</button>
+        <button type="button" id="pdfBtn">Download Report (PDF)</button>
+        <button type="button" id="aiAdviceBtn">Get Smart Advice (AI)</button>
+        <button type="reset" id="resetBtn">Reset</button>
+      </div>
+    </form>
+
+    <canvas id="breakdownChart" width="400" height="300" aria-label="Breakdown chart"></canvas>
+    <div id="result" aria-live="polite"></div>
+    <div id="aiAdvice" class="ai-advice"></div>
+
+    <div id="history" class="history" hidden>
+      <h2>History</h2>
+      <ul id="historyList"></ul>
+      <button type="button" id="clearHistoryBtn" class="secondary">Clear History</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="calculate.js"></script>
 </body>
 </html>
