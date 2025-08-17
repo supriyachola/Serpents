@@ -2,6 +2,7 @@
 
 # CO₂ Footprint Calculator (Web + AI)
 
+Live Demo: [https://serpents-carbonaware.netlify.app/](https://serpents-carbonaware.netlify.app/)
 https://github.com/supriyachola/Serpents
 
 An interactive web application to **track, visualize, and reduce your carbon footprint**. Integrated with **FastAPI** and **Transformers-based AI** to provide personalized eco-friendly suggestions.
